@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Welcome from './Welcome.js'
+import { Button } from 'react-bootstrap'
 
 class App extends Component {
   constructor() {
@@ -8,16 +8,14 @@ class App extends Component {
     this.changeTitle = this.changeTitle.bind(this)
     this.state = {
       title: "Hola mundo desde Estado"
-
     }
   }
-
 
   render() {
     return (
       <div>
         <h1>{this.state.title}</h1>
-        <button onClick={this.changeTitle}>Cambie el titulo</button>
+        <Button bsStyle="primary"> Primary</Button>
       </div>
     )
   }
