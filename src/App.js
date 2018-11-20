@@ -27,6 +27,8 @@ class App extends Component {
         <ul>
           {this.state.names.map(name =>
             <li key={name}> {name} </li>
+            // se le agrega la key name que va a ser unica
+            // ya que esto es obligatorio dentro del contrato de react
           )}
         </ul>
       </div>
