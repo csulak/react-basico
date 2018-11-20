@@ -1,32 +1,53 @@
 import React, { Component } from 'react';
 import './App.css';
-import Welcome from './Welcome.js'
 
 class App extends Component {
   constructor() {
     super()
-    this.changeTitle = this.changeTitle.bind(this)
-    this.state = {
-      title: "Hola mundo desde Estado"
 
+    this.state = {
+      name: "",
+      terms: false
     }
   }
-
 
   render() {
     return (
       <div>
-        <h1>{this.state.title}</h1>
-        <button onClick={this.changeTitle}>Cambie el titulo</button>
+        <h1>Hola Mundo</h1>
+        <input type="text" value={this.state.name} onChange={this.updateName.bind(this)} />
+        <div>
+          <label>
+            <input type="checkbox" checked={this.state.terms} onClick={this.updateTerms.bind(this)} /> Acepto los terminos
+          </label>
+        </div>
+
+        <button onClick={this.sayHi.bind(this)}>Say Hi!</button>
       </div>
     )
   }
 
-  changeTitle() {
+  updateTerms(event) {
     this.setState({
-      title: "nuevo titulo"
+      terms: event.target.checked
     })
   }
+
+  updateName(event) {
+    this.setState({
+      name: event.target.value
+    })
+  }
+
+  sayHi() {
+    if (this.state.terms) {
+      alert("Hola " + this.state.name)
+
+    } else {
+      alert("Debe aceptar los terminos jeje")
+    }
+  }
 }
+
 
 export default App;
